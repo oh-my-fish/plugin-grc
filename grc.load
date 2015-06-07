@@ -1,0 +1,39 @@
+# These methods override the default calls to append `grc exec`.
+# Please send a message if you find another command that can be
+# used with `grc`.
+set -l execs cat           \
+             configure     \
+             dig           \
+             gcc           \
+             g++           \
+             ls            \
+             make          \
+             netstat       \
+             ping          \
+             ps            \
+             tail          \
+             traceroute
+
+if set -q grc_plugin_execs
+  set execs $execs $grc_plugin_execs
+end
+
+# Fish 2.1.1+ has support for --inherit-variable
+set -l do_eval (echo $FISH_VERSION | grep 2.1.1-)
+
+for executable in $execs
+  if test -z "$do_eval"
+    eval "function $executable; __execute_as_grc $executable \$argv; end"
+  else
+    function $executable --inherit-variable executable
+      __execute_as_grc $executable $argv
+    end
+  end
+end
+
+function __execute_as_grc
+  if [ $argv[1] = 'ls' ]
+    set argv $argv '--color'
+  end
+  command grc -es --colour=auto $argv
+end
