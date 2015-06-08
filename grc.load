@@ -32,8 +32,5 @@ for executable in $execs
 end
 
 function __execute_as_grc
-  if [ $argv[1] = 'ls' ]
-    set argv $argv '--color'
-  end
   command grc -es --colour=auto $argv
 end
