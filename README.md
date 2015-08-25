@@ -1,6 +1,7 @@
 # grc-plugin
 
 A [grc][grc] plugin.
+> Note: You need to have grc installed.
 
 ## Screenshot
 
