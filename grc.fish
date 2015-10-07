@@ -1,6 +1,7 @@
 function init --on-event init_grc
-  set -l execs cat cvs diff dig gcc g++ ls make mount mtr \
-               netstat ping ps tail traceroute wdiff
+  set -l execs cat cvs df diff dig gcc g++ ls ifconfig \
+               make mount mtr netstat ping ps tail traceroute \
+               wdiff 
 
   if not available grc
     echo 'You need to install grc!'
