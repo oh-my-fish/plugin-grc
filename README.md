@@ -26,10 +26,12 @@ $ omf install grc
 
 - `cat`
 - `cvs`
+- `df`
 - `diff`
 - `dig`
 - `gcc`
 - `g++`
+- `ifconfig`
 - `ls`
 - `make`
 - `mount`
