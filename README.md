@@ -43,7 +43,7 @@ $ omf install grc
 - `traceroute`
 - `wdiff`
 
-## Options
+## Plugin options
 
 It's possible to define additional command options via universal `grcplugin` variables. For example:
 
@@ -52,6 +52,16 @@ set -U grcplugin_ls --color -l
 ```
 
 Makes `grc` call `ls` with `--color` and `-l` options.
+
+## Override command colorizers
+
+It's possible to override the commands that are colorized via `grc_plugin_execs` variable. For example:
+
+```fish
+set -U grc_plugin_execs gcc g++ make
+```
+
+Enables `grc` colorizing for only `gcc`, `g++` & `make` and disables all others.
 
 # License
 

@@ -9,7 +9,7 @@ function init --on-event init_grc
   end
 
   if set -q grc_plugin_execs
-    set execs $execs $grc_plugin_execs
+    set execs $grc_plugin_execs
   end
 
   for executable in $execs
