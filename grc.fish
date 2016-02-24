@@ -1,9 +1,9 @@
 function init --on-event init_grc
   set -l execs cat cvs df diff dig gcc g++ ls ifconfig \
                make mount mtr netstat ping ps tail traceroute \
-               wdiff 
+               wdiff
 
-  if not available grc
+  if not type -q grc
     echo 'You need to install grc!'
     return 0
   end
@@ -13,7 +13,7 @@ function init --on-event init_grc
   end
 
   for executable in $execs
-    if available $executable
+    if type -q $executable
       function $executable --inherit-variable executable --wraps=$executable
         grc.wrap $executable $argv
       end
