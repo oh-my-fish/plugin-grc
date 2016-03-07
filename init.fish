@@ -1,12 +1,7 @@
-function init --on-event init_grc
+if type -q grc
   set -l execs cat cvs df diff dig gcc g++ ls ifconfig \
                make mount mtr netstat ping ps tail traceroute \
                wdiff
-
-  if not type -q grc
-    echo 'You need to install grc!'
-    return 0
-  end
 
   if set -q grc_plugin_execs
     set execs $grc_plugin_execs
@@ -19,5 +14,6 @@ function init --on-event init_grc
       end
     end
   end
-
+else
+  echo 'You need to install grc!'
 end
