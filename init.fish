@@ -1,7 +1,11 @@
 if type -q grc
   set -l execs cat cvs df diff dig gcc g++ ls ifconfig \
                make mount mtr netstat ping ps tail traceroute \
-               wdiff
+               wdiff ip configure stat ss last who \
+               ldap findmnt env systemctl iptables lspci lsblk lsof \
+               blkid id iostat sar fdisk free docker lsmod lsattr \
+               semanage getsebool ulimit vmstat dnf nmap uptime w \
+               getfacl showmount ant maven
 
   if set -q grc_plugin_execs
     set execs $grc_plugin_execs
