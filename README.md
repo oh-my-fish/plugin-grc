@@ -24,6 +24,11 @@ $ omf install grc
 
 ## Built-in command colorizers
 
+Everyone supported by the original [grc](grc) tool. If there are tools that are
+missing add them to the executables file and make a pull-request for it
+
+Among others, it includes the following:
+
 - `cat`
 - `cvs`
 - `df`
@@ -45,7 +50,8 @@ $ omf install grc
 
 ## Plugin options
 
-It's possible to define additional command options via universal `grcplugin` variables. For example:
+It's possible to define additional command options via universal `grcplugin`
+variables. For example:
 
 ```fish
 set -U grcplugin_ls --color -l
@@ -55,13 +61,21 @@ Makes `grc` call `ls` with `--color` and `-l` options.
 
 ## Override command colorizers
 
-It's possible to override the commands that are colorized via `grc_plugin_execs` variable. For example:
+It's possible to override the commands that are colorized via `grc_plugin_execs`
+variable. For example:
 
 ```fish
 set -U grc_plugin_execs gcc g++ make
 ```
 
 Enables `grc` colorizing for only `gcc`, `g++` & `make` and disables all others.
+
+Alternatively, you can specify commands that the plugin *should not* override.
+You can do that via the grc_plugin_ignore_execs variable:
+
+```fish
+set -U grc_plugin_ignore_execs ls
+```
 
 # License
 
