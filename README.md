@@ -59,7 +59,7 @@ set -U grcplugin_ls --color -l
 
 Makes `grc` call `ls` with `--color` and `-l` options.
 
-## Override command colorizers
+### Override command colorizers
 
 It's possible to override the commands that are colorized via `grc_plugin_execs`
 variable. For example:
@@ -70,11 +70,22 @@ set -U grc_plugin_execs gcc g++ make
 
 Enables `grc` colorizing for only `gcc`, `g++` & `make` and disables all others.
 
+### Ignore specific executables
+
 Alternatively, you can specify commands that the plugin *should not* override.
-You can do that via the grc_plugin_ignore_execs variable:
+You can do that via the `grc_plugin_ignore_execs` variable:
 
 ```fish
 set -U grc_plugin_ignore_execs ls
+```
+
+### Specify custom executables
+
+If you have custom executables that should be wrapped with `grc` specify them in
+`grc_plugin_extras`:
+
+```fish
+set -U grc_plugin_extras my_custom_executable
 ```
 
 # License
