@@ -17,8 +17,8 @@ if type -q grc
   if set -q grc_plugin_execs
     if set -q grc_plugin_ignore_execs
       echo "Both grc_plugin_execs and grc_plugin_ignore_execs  have been provided. Ignoring the latter."
-      set execs $grc_plugin_execs
     end
+    set execs $grc_plugin_execs
   end
 
   if set -q grc_plugin_extras
